@@ -1,7 +1,7 @@
 @if not exist "%HOME%" @set HOME=%HOMEDRIVE%%HOMEPATH%
 @if not exist "%HOME%" @set HOME=%USERPROFILE%
 
-cd "%~dp0"
+pushd "%~dp0"
 
 @set BASE_DIR=%CD%
 call git submodule init
@@ -12,4 +12,6 @@ call mklink /J %HOME%\.vim %BASE_DIR%\.vim
 call mklink /H %HOME%\.vimrc %BASE_DIR%\.vimrc
 call mklink /H %HOME%\_vimrc %BASE_DIR%\.vimrc
 
-call git clone http://github.com/gmarik/vundle.git %HOME%/.vim/bundle/vundle
+call git clone https://github.com/gmarik/vundle.git %HOME%/.vim/bundle/vundle
+
+popd
