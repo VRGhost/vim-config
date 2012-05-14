@@ -66,7 +66,6 @@
             Bundle 'altercation/vim-colors-solarized'
             Bundle 'spf13/vim-colors'
             Bundle 'kien/ctrlp.vim'
-            Bundle 'Lokaltog/vim-powerline'
             Bundle 'Lokaltog/vim-easymotion'
             Bundle 'godlygeek/csapprox'
             Bundle 'flazz/vim-colorschemes'
@@ -76,7 +75,6 @@
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Bundle 'scrooloose/syntastic'
-            Bundle 'majutsushi/tagbar'
         endif
 
     " Python
@@ -158,7 +156,7 @@
         " Broken down into easily includeable segments
         set statusline=%<%f\    " Filename
         set statusline+=%w%h%m%r " Options
-        set statusline+=%{fugitive#statusline()} "  Git Hotness
+        "set statusline+=%{fugitive#statusline()} "  Git Hotness
         set statusline+=\ [%{&ff}/%Y]            " filetype
         set statusline+=\ [%{getcwd()}]          " current dir
         set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
@@ -179,6 +177,7 @@
     set scrolljump=5                " lines to scroll when cursor leaves screen
     set scrolloff=3                 " minimum lines to keep above and below cursor
     "set foldenable                  " auto fold code
+    set nofoldenable
     set list
     set listchars=tab:,.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
@@ -283,7 +282,6 @@
 " Plugins {
 
 
-
     " AutoCloseTag {
         " Make it so AutoCloseTag works for xml and xhtml files as well
         au FileType xhtml,xml ru ftplugin/html/autoclosetag.vim
@@ -305,10 +303,6 @@
         let g:ctrlp_custom_ignore = {
             \ 'dir':  '\.git$\|\.hg$\|\.svn$',
             \ 'file': '\.exe$\|\.so$\|\.dll$' }
-     "}
-
-     " TagBar {
-        nnoremap <silent> <leader>tt :TagbarToggle<CR>
      "}
 
      " PythonMode {
